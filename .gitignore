@@ -1,0 +1,10 @@
+projects
+.DS_Store
+.env
+.idea
+docker-config/nginx/logs
+docker-config/mariadb/dump
+docker-config/mariadb/logs
+docker-config/mariadb/mtips
+docker-config/mariadb/data
+docker-config/postgresql/data
