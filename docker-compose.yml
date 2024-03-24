@@ -19,6 +19,7 @@ services:
     depends_on:
       - main
       - admin
+      - analytics
     environment:
       TZ: ${WORKSPACE_TIMEZONE}
     networks:
@@ -126,9 +127,13 @@ services:
     build:
       context: docker-config/analytics
       dockerfile: Dockerfile
+    container_name: analytics-mtips
+    command: uvicorn main:app --host 0.0.0.0 --reload
     volumes:
       - ./projects/analytics:/app
     ports:
       - "9050:9050"
     networks:
       - backend
+    extra_hosts:
+      - 'analytics.m-tips.local:192.168.65.1'
