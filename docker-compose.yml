@@ -128,11 +128,11 @@ services:
       context: docker-config/analytics
       dockerfile: Dockerfile
     container_name: analytics-mtips
-    command: uvicorn main:app --host 0.0.0.0 --port 9050 --reload # Убедитесь, что здесь указан порт 9050
+    command: uvicorn main:app --host 0.0.0.0 --port 9050 --reload
     volumes:
       - ./projects/analytics:/app
     ports:
-      - "9050:9050" # Это согласуется с портом, на который Nginx будет перенаправлять запросы
+      - "9050:9050"
     networks:
       - backend
     extra_hosts:
